@@ -1,0 +1,15 @@
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\bin\Debug\net8.0\task1.exe
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\bin\Debug\net8.0\task1.deps.json
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\bin\Debug\net8.0\task1.runtimeconfig.json
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\bin\Debug\net8.0\task1.dll
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\bin\Debug\net8.0\task1.pdb
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.GeneratedMSBuildEditorConfig.editorconfig
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.AssemblyInfoInputs.cache
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.AssemblyInfo.cs
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.csproj.CoreCompileInputs.cache
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.sourcelink.json
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.dll
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\refint\task1.dll
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.pdb
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\task1.genruntimeconfig.cache
+F:\Language_learning\C#\Software-Construction-Basics-2024Spring-WHU\Assignment1\task1\obj\Debug\net8.0\ref\task1.dll
