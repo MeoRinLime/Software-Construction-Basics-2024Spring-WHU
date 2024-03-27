@@ -7,20 +7,12 @@ using System.Threading.Tasks;
 
 namespace OrdersManagement
 {
-    internal class OrderDetails
+    internal class OrderDetails(int quantity, string customer, string nameOfMerchandise, decimal UnitPrice)
     {
-        public int Quantity { get; set; }
-        public required string Customer { get; set; }
-        public required string NameOfMerchandise { get; set; }
-        public decimal UnitPrice { get; set; }
-
-        public OrderDetails(int quantity, string customer, string nameOfMerchandise, decimal UnitPrice)
-        {
-            this.Quantity = quantity;
-            this.Customer = customer;
-            this.NameOfMerchandise = nameOfMerchandise;
-            this.UnitPrice = UnitPrice;
-        }
+        public int Quantity { get; set; } = quantity;
+        public string? Customer { get; set; } = customer;
+        public string? NameOfMerchandise { get; set; } = nameOfMerchandise;
+        public decimal UnitPrice { get; set; } = UnitPrice;
 
         public bool Equals(OrderDetails other)
         {
@@ -30,7 +22,7 @@ namespace OrdersManagement
 
         public override string ToString()
         {
-            return $"Customer: {Customer}\r\n Quantity: {Quantity}\r\n Merchandise: {NameOfMerchandise}\r\n UnitPrice: {UnitPrice}";
+            return $"Customer: {Customer}\nQuantity: {Quantity}\nMerchandise: {NameOfMerchandise}\nUnitPrice: {UnitPrice}\n";
         }
     }
 }

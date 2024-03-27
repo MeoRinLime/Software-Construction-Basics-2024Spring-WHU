@@ -1,4 +1,4 @@
-﻿using OrderManagement;
+﻿using OrdersManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace OrdersManagement
 
         public override string ToString()
         {
-            return $"Order ID: {OrderId}\r\n Total Amount: {TotalAmount}";
+            return $"Order ID: {OrderId}\nTotal Amount: {TotalAmount}";
         }
     }
 }

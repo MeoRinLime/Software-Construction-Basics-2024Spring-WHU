@@ -8,7 +8,7 @@ namespace OrdersManagement
 {
     internal class OrderService
     {
-        private List<Order> orders = new List<Order>();
+        public List<Order> orders = new List<Order>();
 
         public void AddOrder(Order order)
         {
@@ -72,6 +72,11 @@ namespace OrdersManagement
                 Console.WriteLine(order);
                 Console.WriteLine(order.OrderDetails);
             }
+        }
+
+        public bool isValidOrderId(int orderId)
+        {
+            return orders.Any(o => o.OrderId == orderId);
         }
     }
 }
