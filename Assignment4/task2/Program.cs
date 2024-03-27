@@ -24,13 +24,30 @@ public class Clock
     // 闹钟运行方法
     public void Run()
     {
+/*        Task.Run(() =>
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                OnTick(EventArgs.Empty);
+            }
+        });
+
+        Task.Run( () =>
+        {
+            while (true)
+            {
+                Thread.Sleep(10000); 
+                OnAlarm(EventArgs.Empty);
+            }
+        });*/
         while (true)
         {
             Thread.Sleep(1000); // 每秒Tick一次
             OnTick(EventArgs.Empty);
 
             DateTime now = DateTime.Now;
-            if (now.Second % 10 == 0 ) // 每10秒Alarm一次
+            if (now.Second % 10 == 0) // 每10秒Alarm一次
             {
                 OnAlarm(EventArgs.Empty);
             }

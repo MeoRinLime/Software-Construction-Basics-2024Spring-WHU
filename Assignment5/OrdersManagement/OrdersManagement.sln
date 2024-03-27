@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrdersManagement", "OrdersManagement.csproj", "{556D97DD-C4AD-47A2-BB60-05259007D883}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWTest", "..\SWTest\SWTest.csproj", "{93B97EF1-42A1-43EF-85E5-68274A46DDE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{556D97DD-C4AD-47A2-BB60-05259007D883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556D97DD-C4AD-47A2-BB60-05259007D883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556D97DD-C4AD-47A2-BB60-05259007D883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556D97DD-C4AD-47A2-BB60-05259007D883}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93B97EF1-42A1-43EF-85E5-68274A46DDE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B97EF1-42A1-43EF-85E5-68274A46DDE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B97EF1-42A1-43EF-85E5-68274A46DDE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B97EF1-42A1-43EF-85E5-68274A46DDE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {652503A8-52E0-46CA-A1EF-CF7E3946222F}
+	EndGlobalSection
+EndGlobal
