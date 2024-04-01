@@ -171,6 +171,10 @@ do
                     break;
                 }
 
+                List<Order> orderToUpdate = orderService.QueryOrders(o => o.OrderId == orderIdToUpdate).ToList();
+                orderToUpdate.ForEach(o => Console.WriteLine(o.ToString() + "\r\n" + o.OrderDetails.ToString() + "\r\n"));
+
+
                 Console.WriteLine("What would you like to update?");
                 Console.WriteLine(" 1. Update Quantity.");
                 Console.WriteLine(" 2. Update Customer.");
@@ -198,9 +202,10 @@ do
                             {
                                 isValidQuantityUpdate = true;
                             }
-                        } while (!isValidQuantityUpdate);
+                        } while (!isValidQuantityUpdate && UpdataMenuSelection != "exit");
                         var orderToUpdate1 = orderService.QueryOrders(o => o.OrderId == orderIdToUpdate).FirstOrDefault();
                         orderToUpdate1.OrderDetails.Quantity = quantityUpdate;
+                        Console.WriteLine($"Updated order {orderIdToUpdate} successfully.");
                         break;
 
                     case "2":
@@ -219,9 +224,10 @@ do
                             {
                                 isValidCostomerNameUpdate = true;
                             }
-                        } while (!isValidCostomerNameUpdate);
+                        } while (!isValidCostomerNameUpdate && UpdataMenuSelection != "exit");
                         var orderToUpdate2 = orderService.QueryOrders(o => o.OrderId == orderIdToUpdate).FirstOrDefault();
                         orderToUpdate2.OrderDetails.Customer = customerUpdate;
+                        Console.WriteLine($"Updated order {orderIdToUpdate} successfully.");
                         break;
 
                     case "3":
@@ -240,9 +246,10 @@ do
                             {
                                 isValidMerchandiseNameUpdate = true;
                             }
-                        } while (!isValidMerchandiseNameUpdate);
+                        } while (!isValidMerchandiseNameUpdate && UpdataMenuSelection != "exit");
                         var orderToUpdate3 = orderService.QueryOrders(o => o.OrderId == orderIdToUpdate).FirstOrDefault();
                         orderToUpdate3.OrderDetails.NameOfMerchandise = nameOfMerchandiseUpdate;
+                        Console.WriteLine($"Updated order {orderIdToUpdate} successfully.");
                         break;
 
                     case "4":
@@ -256,9 +263,10 @@ do
                             {
                                 isValidUnitPriceUpdate = true;
                             }
-                        } while (!isValidUnitPriceUpdate);
+                        } while (!isValidUnitPriceUpdate && UpdataMenuSelection != "exit");
                         var orderToUpdate4 = orderService.QueryOrders(o => o.OrderId == orderIdToUpdate).FirstOrDefault();
                         orderToUpdate4.OrderDetails.UnitPrice = unitPriceUpdate;
+                        Console.WriteLine($"Updated order {orderIdToUpdate} successfully.");
                         break;
 
                     case "5":
@@ -268,7 +276,6 @@ do
                         break;
                 }
             } while (UpdataMenuSelection != "exit" && !isValidOrderId);
-            Console.WriteLine($"Updated order {orderIdToUpdate} successfully.");
             Console.WriteLine("Press enter to return.");
             Console.ReadLine();
             break;
@@ -391,11 +398,128 @@ do
 
             break;
 
-        //排序订单
+        //排序订单，可以按照订单号、商品名称、客户、订单金额等进行排序
         case "5":
-            orderService.SortOrders(o => o.OrderId);
-            Console.WriteLine("sorted by Order ID:");
-            orderService.DisplayOrders();
+            string? SortMenuSelection = "";
+            string? readResultSort = "";
+            string? readWaySort = "";
+
+            Console.Clear();
+            Console.WriteLine("Which is the base element you want to sort orders? ");
+            Console.WriteLine(" 1. Sort by Order ID.");
+            Console.WriteLine(" 2. Sort by Customer.");
+            Console.WriteLine(" 3. Sort by Name of Merchandise.");
+            Console.WriteLine(" 4. Sort by Unit Price.");
+            Console.WriteLine(" 5. Exit.\n");
+
+            readResultSort = Console.ReadLine();
+
+            if (readResultSort != null)
+            {
+                SortMenuSelection = readResultSort.ToLower();
+            }
+
+            Console.WriteLine("What kind of ways do you want to sort orders? ");
+
+            Console.WriteLine(" 1. Ascending.");
+            Console.WriteLine(" 2. Descending.");
+            Console.WriteLine(" 3. Exit.\n");
+
+            readWaySort = Console.ReadLine();
+
+            if (readWaySort != null)
+            {
+                SortMenuSelection += readWaySort;
+            }
+
+            List<Order> SortedOrders = new List<Order>();
+
+            switch (SortMenuSelection)
+            {
+                case "1":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderId);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "2":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.Customer);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "3":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.NameOfMerchandise);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "4":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.UnitPrice);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "11":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderId);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "21":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.Customer);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "31":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.NameOfMerchandise);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "41":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.UnitPrice);
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "12":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderId);
+                    SortedOrders.Reverse();
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "22":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.Customer);
+                    SortedOrders.Reverse();
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "32":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.NameOfMerchandise);
+                    SortedOrders.Reverse();
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "42":
+                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
+                    orderService.SortOrders(o => o.OrderDetails.UnitPrice);
+                    SortedOrders.Reverse();
+                    displayAllOrders(SortedOrders);
+                    break;
+
+                case "5":
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid selection. Please try again.");
+                    break;
+            }
+
             Console.WriteLine("Press enter to return.");
             Console.ReadLine();
             break;
