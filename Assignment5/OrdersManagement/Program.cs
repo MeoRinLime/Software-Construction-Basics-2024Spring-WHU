@@ -419,6 +419,11 @@ do
                 SortMenuSelection = readResultSort.ToLower();
             }
 
+            if (SortMenuSelection == "5")
+            {
+                break;
+            }
+
             Console.WriteLine("What kind of ways do you want to sort orders? ");
 
             Console.WriteLine(" 1. Ascending.");
@@ -427,89 +432,61 @@ do
 
             readWaySort = Console.ReadLine();
 
-            if (readWaySort != null)
+            if (readWaySort == "3")
             {
-                SortMenuSelection += readWaySort;
+                break;
             }
 
-            List<Order> SortedOrders = new List<Order>();
+            if (readWaySort != null)
+            {
+                SortMenuSelection += readWaySort.ToLower();
+
+            }
 
             switch (SortMenuSelection)
             {
-                case "1":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
-                    orderService.SortOrders(o => o.OrderId);
-                    displayAllOrders(SortedOrders);
-                    break;
-
-                case "2":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
-                    orderService.SortOrders(o => o.OrderDetails.Customer);
-                    displayAllOrders(SortedOrders);
-                    break;
-
-                case "3":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
-                    orderService.SortOrders(o => o.OrderDetails.NameOfMerchandise);
-                    displayAllOrders(SortedOrders);
-                    break;
-
-                case "4":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
-                    orderService.SortOrders(o => o.OrderDetails.UnitPrice);
-                    displayAllOrders(SortedOrders);
-                    break;
-
                 case "11":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderId);
-                    displayAllOrders(SortedOrders);
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "21":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderDetails.Customer);
-                    displayAllOrders(SortedOrders);
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "31":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderDetails.NameOfMerchandise);
-                    displayAllOrders(SortedOrders);
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "41":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderDetails.UnitPrice);
-                    displayAllOrders(SortedOrders);
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "12":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderId);
-                    SortedOrders.Reverse();
-                    displayAllOrders(SortedOrders);
+                    orderService.orders.Reverse();
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "22":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderDetails.Customer);
-                    SortedOrders.Reverse();
-                    displayAllOrders(SortedOrders);
+                    orderService.orders.Reverse();
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "32":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderDetails.NameOfMerchandise);
-                    SortedOrders.Reverse();
-                    displayAllOrders(SortedOrders);
+                    orderService.orders.Reverse();
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "42":
-                    SortedOrders = orderService.QueryOrders(o => o.OrderId > 0).ToList();
                     orderService.SortOrders(o => o.OrderDetails.UnitPrice);
-                    SortedOrders.Reverse();
-                    displayAllOrders(SortedOrders);
+                    orderService.orders.Reverse();
+                    displayAllOrders(orderService.orders);
                     break;
 
                 case "5":
