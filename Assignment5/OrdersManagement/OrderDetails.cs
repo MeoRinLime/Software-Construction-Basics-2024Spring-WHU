@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrdersManagement
 {
-    internal class OrderDetails(int quantity, string customer, string nameOfMerchandise, decimal UnitPrice)
+    public class OrderDetails(int quantity, string customer, string nameOfMerchandise, decimal UnitPrice)
     {
         public int Quantity { get; set; } = quantity;
         public string? Customer { get; set; } = customer;

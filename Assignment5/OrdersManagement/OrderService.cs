@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrdersManagement
 {
-    internal class OrderService
+    public class OrderService
     {
         public List<Order> orders = new List<Order>();
 

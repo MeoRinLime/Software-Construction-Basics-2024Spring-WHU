@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrdersManagement
 {
-    internal class Order : IEquatable<Order>
+    public class Order : IEquatable<Order>
     {
         public int OrderId { get; set; }
 
