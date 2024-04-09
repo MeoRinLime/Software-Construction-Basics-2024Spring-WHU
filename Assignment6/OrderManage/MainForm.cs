@@ -11,6 +11,7 @@ namespace OrderManage
             InitializeComponent();
             ControlInformation.Text = ControlInformationText;
             OrderIDArea.Visible = false;
+            OrdersDataGridView.DataSource = GlobalVariables.OrderService.QueryAll();
         }
         string ControlInformationText = "我永远喜欢KizunaAi！今天想要干什么？";
 
@@ -39,7 +40,7 @@ namespace OrderManage
                     return;
                 }
                 new UpdateForm(order).Show();
-                
+
             }
             catch (Exception)
             {
@@ -52,5 +53,12 @@ namespace OrderManage
         {
             new CreateForm().Show();
         }
+
+        private void OrdersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
     }
 }

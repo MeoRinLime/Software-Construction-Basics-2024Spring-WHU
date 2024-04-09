@@ -70,7 +70,7 @@ namespace OrderManage
                 {
                     if (goods.Name == goodsNameEng)
                     {
-                        CreateGoodsListBox.Items.Add($"{goodsName}, 数量：{quantity}");
+                        CreateGoodsListBox.Items.Add($"{goodsName},数量：{quantity}");
                     }
                 });
             }
@@ -90,6 +90,56 @@ namespace OrderManage
             Order newOrder = new Order();
             newOrder.Customer = CreateCostomerTextBox.Text;
             newOrder.Id = newOrder.GetHashCode();
+            newOrder.CreateTime = DateTime.Now;
+            foreach (var item in CreateGoodsListBox.Items)
+            {
+                string[] goods = item.ToString().Split(',');
+                string goodsName = goods[0];
+                string goodsNameEng = " ";
+                switch (goodsName)
+                {
+                    case "苹果":
+                        goodsNameEng = "apple";
+                        break;
+                    case "鸡蛋":
+                        goodsNameEng = "egg";
+                        break;
+                    case "牛奶":
+                        goodsNameEng = "milk";
+                        break;
+                    case "面包":
+                        goodsNameEng = "bread";
+                        break;
+                    case "蛋糕":
+                        goodsNameEng = "cake";
+                        break;
+                    case "电脑":
+                        goodsNameEng = "computer";
+                        break;
+                    case "手机":
+                        goodsNameEng = "phone";
+                        break;
+                    case "书籍":
+                        goodsNameEng = "book";
+                        break;
+                }
+                try
+                {
+                    int quantity = int.Parse(goods[1].Substring(3));
+                    GlobalVariables.AllGoods.ForEach(goods =>
+                    {
+                        if (goods.Name == goodsNameEng)
+                        {
+                            newOrder.AddDetails(new OrderDetail(goods, quantity));
+                        }
+                    });
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("请输入正确的数量");
+                }
+            }
+            GlobalVariables.OrderService.AddOrder(newOrder);
         }
     }
 }

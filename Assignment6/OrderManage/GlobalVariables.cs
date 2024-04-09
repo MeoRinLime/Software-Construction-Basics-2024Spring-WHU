@@ -22,5 +22,6 @@ namespace OrderManage
                 new Goods(7, "phone", 5000),
                 new Goods(8, "book", 20)
             };
+        public static OrderService OrderService = new OrderService();
     }
 }
