@@ -10,8 +10,7 @@ namespace OrderManage
     public static class GlobalVariables
     {
         //预设商品
-        public static             
-            List<Goods> AllGoods = new List<Goods>
+        public static List<Goods> AllGoods = new List<Goods>
             {
                 new Goods(1, "apple", 5),
                 new Goods(2, "egg", 1),
@@ -23,5 +22,7 @@ namespace OrderManage
                 new Goods(8, "book", 20)
             };
         public static OrderService OrderService = new OrderService();
+
+        public static List<int> ordersID = new List<int>();
     }
 }

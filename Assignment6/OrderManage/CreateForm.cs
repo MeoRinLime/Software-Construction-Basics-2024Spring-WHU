@@ -73,6 +73,7 @@ namespace OrderManage
                         CreateGoodsListBox.Items.Add($"{goodsName},数量：{quantity}");
                     }
                 });
+                CreateGoodsQuantityTextBox.Text = "";
             }
             catch (Exception)
             {
@@ -87,10 +88,21 @@ namespace OrderManage
 
         private void CreateConfirmButton_Click(object sender, EventArgs e)
         {
-            Order newOrder = new Order();
-            newOrder.Customer = CreateCostomerTextBox.Text;
-            newOrder.Id = newOrder.GetHashCode();
-            newOrder.CreateTime = DateTime.Now;
+            string newCustomer = CreateCostomerTextBox.Text;
+            Order newOrder = new Order(newCustomer);
+
+            List<string> AllgoodsName = new List<string>();
+            foreach (var item in CreateGoodsListBox.Items)
+            {
+                string goodsNameCheck = item.ToString().Split(',')[0];
+                if (AllgoodsName.Contains(goodsNameCheck))
+                {
+                    MessageBox.Show("请勿添加重复商品");
+                    return;
+                }
+                AllgoodsName.Add(goodsNameCheck);
+            }
+
             foreach (var item in CreateGoodsListBox.Items)
             {
                 string[] goods = item.ToString().Split(',');
@@ -123,23 +135,27 @@ namespace OrderManage
                         goodsNameEng = "book";
                         break;
                 }
+                int quantity = 0;
                 try
                 {
-                    int quantity = int.Parse(goods[1].Substring(3));
-                    GlobalVariables.AllGoods.ForEach(goods =>
+                    quantity = int.Parse(goods[1].Substring(3));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("请输入正确的数量");
+                }
+                GlobalVariables.AllGoods.ForEach(goods =>
                     {
                         if (goods.Name == goodsNameEng)
                         {
                             newOrder.AddDetails(new OrderDetail(goods, quantity));
                         }
                     });
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("请输入正确的数量");
-                }
+                
+
             }
             GlobalVariables.OrderService.AddOrder(newOrder);
+            this.Close();
         }
     }
 }

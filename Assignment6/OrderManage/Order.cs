@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using OrderManage;
+using System.Text;
 
 namespace OrderApp
 {
@@ -26,11 +27,19 @@ namespace OrderApp
             CreateTime = DateTime.Now;
         }
 
-        public Order(int orderId, string customer, DateTime creatTime)
+        //id号为随机生成的七位数字
+        public Order(string customer)
         {
-            Id = orderId;
+            Random random = new Random();
+            int id = 0;
+            do
+            {
+                id = random.Next(1000000, 10000000);
+            } while (GlobalVariables.ordersID.Contains(id));
+            GlobalVariables.ordersID.Add(id);
+            this.Id = id;
             Customer = customer;
-            CreateTime = creatTime;
+            CreateTime = DateTime.Now;
         }
 
         public void AddDetails(OrderDetail orderDetail)
