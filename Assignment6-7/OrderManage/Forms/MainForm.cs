@@ -1,4 +1,6 @@
-using OrderApp;
+using Microsoft.EntityFrameworkCore;
+using OrderManage;
+using OrderManage.sql;
 using System;
 using System.Windows.Forms;
 
@@ -6,19 +8,20 @@ namespace OrderManage
 {
     public partial class MainForm : Form
     {
+        private readonly OrderService service = new OrderService();
+
         public MainForm()
         {
             InitializeComponent();
             ControlInformation.Text = ControlInformationText;
             OrderIDArea.Visible = false;
-            OrdersDataGridView.DataSource = GlobalVariables.OrderService.QueryAll();
-
+            QueryAll(service);
         }
         string ControlInformationText = "我永远喜欢KizunaAi！今天想要干什么？";
 
-        public void UpdateOrdersDataGridView()
+        public void QueryAll(OrderService service)
         {
-            OrdersDataGridView.DataSource = GlobalVariables.OrderService.QueryAll();
+            OrdersDataGridView.DataSource = service.QueryAll();
         }
 
         private void UpdateOrder_Click(object sender, EventArgs e)
@@ -38,7 +41,7 @@ namespace OrderManage
             try
             {
                 int orderID = int.Parse(InputOrderID.Text);
-                Order order = new OrderService().GetById(orderID);
+                Order order = service.GetById(orderID);
                 if (order == null)
                 {
                     ControlInformationText = "订单不存在，请重新输入";
@@ -67,7 +70,7 @@ namespace OrderManage
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            OrdersDataGridView.DataSource = GlobalVariables.OrderService.QueryAll();
+            OrdersDataGridView.DataSource = service.QueryAll();
         }
     }
 }

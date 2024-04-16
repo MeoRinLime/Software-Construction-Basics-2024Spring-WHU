@@ -30,10 +30,10 @@
         {
             MainArea = new Panel();
             InforDisplayArea = new Panel();
+            RefreshButton = new Button();
             OrdersDisplayArea = new Panel();
             OrdersDataGridView = new DataGridView();
             OrderIDArea = new Panel();
-            RefreshButton = new Button();
             ConfirmOrderID = new Button();
             InputOrderID = new TextBox();
             OrderTip = new Label();
@@ -77,6 +77,17 @@
             InforDisplayArea.Size = new Size(1192, 802);
             InforDisplayArea.TabIndex = 5;
             // 
+            // RefreshButton
+            // 
+            RefreshButton.Location = new Point(955, 153);
+            RefreshButton.Margin = new Padding(4);
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Size = new Size(150, 46);
+            RefreshButton.TabIndex = 4;
+            RefreshButton.Text = "刷新";
+            RefreshButton.UseVisualStyleBackColor = true;
+            RefreshButton.Click += RefreshButton_Click;
+            // 
             // OrdersDisplayArea
             // 
             OrdersDisplayArea.Controls.Add(OrdersDataGridView);
@@ -110,17 +121,6 @@
             OrderIDArea.Name = "OrderIDArea";
             OrderIDArea.Size = new Size(800, 64);
             OrderIDArea.TabIndex = 3;
-            // 
-            // RefreshButton
-            // 
-            RefreshButton.Location = new Point(955, 153);
-            RefreshButton.Margin = new Padding(4);
-            RefreshButton.Name = "RefreshButton";
-            RefreshButton.Size = new Size(150, 46);
-            RefreshButton.TabIndex = 4;
-            RefreshButton.Text = "刷新";
-            RefreshButton.UseVisualStyleBackColor = true;
-            RefreshButton.Click += RefreshButton_Click;
             // 
             // ConfirmOrderID
             // 

@@ -1,17 +1,16 @@
 ﻿using System;
 
-namespace OrderApp
+namespace OrderManage
 {
 
     public class Goods
     {
-
-
-        public int Id { get; set; }
-
+        public int GoodsId { get; set; }
         public string Name { get; set; }
 
         private float price;
+
+        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
         public float Price
         {
@@ -28,7 +27,7 @@ namespace OrderApp
 
         public Goods(int id, string name, float price)
         {
-            this.Id = id;
+            this.GoodsId = id;
             this.Name = name;
             this.Price = price;
         }
@@ -36,17 +35,17 @@ namespace OrderApp
         public override bool Equals(object obj)
         {
             var goods = obj as Goods;
-            return goods != null && Id == goods.Id;
+            return goods != null && GoodsId == goods.GoodsId;
         }
 
         public override int GetHashCode()
         {
-            return 2108858624 + Id.GetHashCode();
+            return 2108858624 + GoodsId.GetHashCode();
         }
 
         public override string ToString()
         {
-            return $"Id:{Id}, Name:{Name}, Value:{Price}";
+            return $"Id:{GoodsId}, Name:{Name}, Value:{Price}";
         }
 
     }

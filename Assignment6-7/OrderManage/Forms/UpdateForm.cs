@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OrderApp;
+using OrderManage;
 
 namespace OrderManage
 {
@@ -22,7 +22,7 @@ namespace OrderManage
         {
             Order = order;
             InitializeComponent();
-            UpdateOrderIDText.Text = order.Id.ToString();
+            UpdateOrderIDText.Text = order.OrderId.ToString();
             UpdateCostomerTextBox.Text = order.Customer.ToString();
             UpdateOrderDetailsComboBox.DataSource = order.Details;
         }
