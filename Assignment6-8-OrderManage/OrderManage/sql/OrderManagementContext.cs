@@ -17,6 +17,12 @@ namespace OrderManage.sql
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Goods> Goods { get; set; }
 
+        public OrderManagementContext(DbContextOptions<OrderManagementContext> options)
+        : base(options)
+        {
+            this.Database.EnsureCreated(); //自动建库建表
+        }
+
         public void ConnectToDatabase()
         {
             // 与数据库连接的信息
@@ -55,10 +61,7 @@ namespace OrderManage.sql
                 // 连接信息
                 string sql = "server=localhost;port=3306;database=ordermanage;user=root;password=meorin;CharSet=utf8;";
                 optionsBuilder
-                    .UseMySQL(sql)
-                    .LogTo(Console.WriteLine, LogLevel.Information)  // 将日志输出到控制台，并设置日志级别为Information
-                    .EnableSensitiveDataLogging()                    // 启用敏感数据日志记录，适用于开发环境
-                    .EnableDetailedErrors();                         // 启用详细错误信息，有助于调试
+                    .UseMySQL(sql);
             }
         }
 

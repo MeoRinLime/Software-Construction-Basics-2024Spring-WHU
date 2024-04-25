@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using OrderManage;
 using OrderManage.sql;
+using OrderManage.src;
 using System;
 using System.Windows.Forms;
 

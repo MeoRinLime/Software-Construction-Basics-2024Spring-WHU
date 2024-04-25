@@ -1,6 +1,4 @@
-using OrderManage;
-
-namespace OrderManage
+namespace OrderManage.src
 {
     internal static class Program
     {

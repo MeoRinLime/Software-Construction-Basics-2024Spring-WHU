@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OrderManage;
+using OrderManage.src;
 
 namespace OrderManage
 {
@@ -18,7 +18,12 @@ namespace OrderManage
         public CreateForm()
         {
             InitializeComponent();
-            CreateGoodsComboBox.DataSource = service.QueryAllGoods();
+            List<string> AllGoodsName = new List<string>();
+            service.QueryAllGoods().ForEach(goods =>
+            {
+                AllGoodsName.Add(goods.GoodsName);
+            });
+            CreateGoodsComboBox.DataSource = AllGoodsName;
         }
 
         private void CreateBackButton_Click(object sender, EventArgs e)
@@ -34,9 +39,9 @@ namespace OrderManage
                 int quantity = int.Parse(CreateGoodsQuantityTextBox.Text);
                 service.QueryAllGoods().ForEach(goods =>
                 {
-                    if (goods.Name == goodsName)
+                    if (goods.GoodsName == goodsName)
                     {
-                        CreateGoodsListBox.Items.Add(goods.Name + ",数量:" + quantity);
+                        CreateGoodsListBox.Items.Add(goods.GoodsName + ",数量:" + quantity);
                     }
                 });
                 CreateGoodsQuantityTextBox.Text = "";
@@ -84,7 +89,7 @@ namespace OrderManage
                 }
                 service.QueryAllGoods().ForEach(goods =>
                 {
-                    if (goods.Name == goodsName)
+                    if (goods.GoodsName == goodsName)
                     {
                         newOrder.AddDetails(new OrderDetail(goods, quantity));
                     }

@@ -49,7 +49,7 @@ namespace OrderManage
         {
             if (Details.Contains(orderDetail))
             {
-                throw new ApplicationException($"The goods ({orderDetail.Goods.Name}) exist in order {OrderId}");
+                throw new ApplicationException($"The goods ({orderDetail.Goods.GoodsName}) exist in order {OrderId}");
             }
             Details.Add(orderDetail);
         }

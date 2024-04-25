@@ -6,15 +6,20 @@ using System.Xml.Serialization;
 using Microsoft.EntityFrameworkCore;
 using OrderManage.sql;
 
-namespace OrderManage
+namespace OrderManage.src
 {
     public class OrderService
     {
         private readonly OrderManagementContext context;
 
+        public OrderService(OrderManagementContext context)
+        {
+            this.context = context;
+        }
+
         public OrderService()
         {
-            context = new OrderManagementContext();
+
         }
 
         // 添加订单
@@ -89,7 +94,7 @@ namespace OrderManage
         public List<Order> QueryByGoodsName(string goodsName)
         {
             return context.Orders
-                .Where(o => o.Details.Any(d => d.Goods.Name == goodsName))
+                .Where(o => o.Details.Any(d => d.Goods.GoodsName == goodsName))
                 .OrderBy(o => o.TotalPrice)
                 .ToList();
         }

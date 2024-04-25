@@ -6,7 +6,7 @@ namespace OrderManage
     public class Goods
     {
         public int GoodsId { get; set; }
-        public string Name { get; set; }
+        public string GoodsName { get; set; }
 
         private float price;
 
@@ -23,12 +23,12 @@ namespace OrderManage
             }
         }
 
-        public Goods() { }
+        public Goods(){}
 
         public Goods(int id, string name, float price)
         {
             this.GoodsId = id;
-            this.Name = name;
+            this.GoodsName = name;
             this.Price = price;
         }
 
@@ -45,7 +45,7 @@ namespace OrderManage
 
         public override string ToString()
         {
-            return $"Id:{GoodsId}, Name:{Name}, Value:{Price}";
+            return $"Id:{GoodsId}, Name:{GoodsName}, Value:{Price}";
         }
 
     }
