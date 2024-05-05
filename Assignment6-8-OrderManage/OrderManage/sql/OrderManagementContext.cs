@@ -23,6 +23,11 @@ namespace OrderManage.sql
             this.Database.EnsureCreated(); //自动建库建表
         }
 
+        public OrderManagementContext()
+        {
+
+        }
+
         public void ConnectToDatabase()
         {
             // 与数据库连接的信息

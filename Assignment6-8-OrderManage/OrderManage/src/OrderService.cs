@@ -12,14 +12,9 @@ namespace OrderManage.src
     {
         private readonly OrderManagementContext context;
 
-        public OrderService(OrderManagementContext context)
-        {
-            this.context = context;
-        }
-
         public OrderService()
         {
-
+            this.context = new OrderManagementContext();
         }
 
         // 添加订单
