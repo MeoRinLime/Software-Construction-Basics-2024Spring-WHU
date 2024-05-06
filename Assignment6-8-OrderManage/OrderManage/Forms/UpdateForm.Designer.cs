@@ -34,69 +34,103 @@
             UpdateCostomerTextBox = new TextBox();
             UpdateOrderDetailsComboBox = new ComboBox();
             UpdateDetailsLabel = new Label();
+            SaveButton = new Button();
+            BackButton = new Button();
             SuspendLayout();
             // 
             // UpdateCostomerLabel
             // 
             UpdateCostomerLabel.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            UpdateCostomerLabel.Location = new Point(140, 245);
+            UpdateCostomerLabel.Location = new Point(180, 292);
+            UpdateCostomerLabel.Margin = new Padding(4, 0, 4, 0);
             UpdateCostomerLabel.Name = "UpdateCostomerLabel";
-            UpdateCostomerLabel.Size = new Size(178, 50);
+            UpdateCostomerLabel.Size = new Size(229, 60);
             UpdateCostomerLabel.TabIndex = 0;
             UpdateCostomerLabel.Text = "客户:";
             // 
             // UpdateOrderIDLabel
             // 
             UpdateOrderIDLabel.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            UpdateOrderIDLabel.Location = new Point(140, 141);
+            UpdateOrderIDLabel.Location = new Point(180, 168);
+            UpdateOrderIDLabel.Margin = new Padding(4, 0, 4, 0);
             UpdateOrderIDLabel.Name = "UpdateOrderIDLabel";
-            UpdateOrderIDLabel.Size = new Size(178, 50);
+            UpdateOrderIDLabel.Size = new Size(229, 60);
             UpdateOrderIDLabel.TabIndex = 1;
             UpdateOrderIDLabel.Text = "订单号:";
             // 
             // UpdateOrderIDText
             // 
-            UpdateOrderIDText.Location = new Point(402, 138);
+            UpdateOrderIDText.Location = new Point(517, 165);
+            UpdateOrderIDText.Margin = new Padding(4, 4, 4, 4);
             UpdateOrderIDText.Name = "UpdateOrderIDText";
             UpdateOrderIDText.ReadOnly = true;
-            UpdateOrderIDText.Size = new Size(200, 38);
+            UpdateOrderIDText.Size = new Size(256, 43);
             UpdateOrderIDText.TabIndex = 2;
             // 
             // UpdateCostomerTextBox
             // 
-            UpdateCostomerTextBox.Location = new Point(402, 245);
+            UpdateCostomerTextBox.Location = new Point(517, 292);
+            UpdateCostomerTextBox.Margin = new Padding(4, 4, 4, 4);
             UpdateCostomerTextBox.Name = "UpdateCostomerTextBox";
-            UpdateCostomerTextBox.Size = new Size(200, 38);
+            UpdateCostomerTextBox.Size = new Size(256, 43);
             UpdateCostomerTextBox.TabIndex = 3;
             // 
             // UpdateOrderDetailsComboBox
             // 
             UpdateOrderDetailsComboBox.FormattingEnabled = true;
-            UpdateOrderDetailsComboBox.Location = new Point(402, 351);
+            UpdateOrderDetailsComboBox.Location = new Point(517, 419);
+            UpdateOrderDetailsComboBox.Margin = new Padding(4, 4, 4, 4);
             UpdateOrderDetailsComboBox.Name = "UpdateOrderDetailsComboBox";
-            UpdateOrderDetailsComboBox.Size = new Size(242, 39);
+            UpdateOrderDetailsComboBox.Size = new Size(310, 45);
             UpdateOrderDetailsComboBox.TabIndex = 4;
             // 
             // UpdateDetailsLabel
             // 
             UpdateDetailsLabel.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            UpdateDetailsLabel.Location = new Point(140, 351);
+            UpdateDetailsLabel.Location = new Point(180, 419);
+            UpdateDetailsLabel.Margin = new Padding(4, 0, 4, 0);
             UpdateDetailsLabel.Name = "UpdateDetailsLabel";
-            UpdateDetailsLabel.Size = new Size(178, 50);
+            UpdateDetailsLabel.Size = new Size(229, 60);
             UpdateDetailsLabel.TabIndex = 5;
             UpdateDetailsLabel.Text = "具体商品：";
             // 
+            // SaveButton
+            // 
+            SaveButton.Location = new Point(592, 613);
+            SaveButton.Margin = new Padding(4, 4, 4, 4);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(181, 58);
+            SaveButton.TabIndex = 6;
+            SaveButton.Text = "确认";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
+            // 
+            // BackButton
+            // 
+            BackButton.Location = new Point(228, 613);
+            BackButton.Margin = new Padding(4);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(181, 58);
+            BackButton.TabIndex = 7;
+            BackButton.Text = "返回";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
+            // 
             // UpdateForm
             // 
-            AutoScaleDimensions = new SizeF(14F, 31F);
+            AutoScaleDimensions = new SizeF(18F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 729);
+            ClientSize = new Size(995, 870);
+            Controls.Add(BackButton);
+            Controls.Add(SaveButton);
             Controls.Add(UpdateDetailsLabel);
             Controls.Add(UpdateOrderDetailsComboBox);
             Controls.Add(UpdateCostomerTextBox);
             Controls.Add(UpdateOrderIDText);
             Controls.Add(UpdateOrderIDLabel);
             Controls.Add(UpdateCostomerLabel);
+            Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "UpdateForm";
             Text = "修改订单";
             ResumeLayout(false);
@@ -111,5 +145,7 @@
         private TextBox UpdateCostomerTextBox;
         private ComboBox UpdateOrderDetailsComboBox;
         private Label UpdateDetailsLabel;
+        private Button SaveButton;
+        private Button BackButton;
     }
 }

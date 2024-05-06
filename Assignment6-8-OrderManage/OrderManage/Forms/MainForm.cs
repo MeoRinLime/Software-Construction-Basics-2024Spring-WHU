@@ -72,5 +72,29 @@ namespace OrderManage
         {
             OrdersDataGridView.DataSource = service.QueryAll();
         }
+
+        private void DeleteOrder_Click(object sender, EventArgs e)
+        {
+            // 获取当前选中的行
+            if (OrdersDataGridView.SelectedRows.Count > 0)
+            {
+                var selectedRow = OrdersDataGridView.SelectedRows[0];
+                var order = (Order)selectedRow.DataBoundItem;
+
+                // 弹窗询问用户是否确认删除
+                DialogResult result = MessageBox.Show($"确认删除订单 {order.OrderId} 吗？", "确认删除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    // 执行删除操作
+                    service.RemoveOrder(order.OrderId);
+                    RefreshButton_Click(sender, e); // 刷新DataGridView
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择一个订单进行删除。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

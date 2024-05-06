@@ -81,7 +81,7 @@ namespace OrderManage.src
         {
             return context.Orders
                 .Where(o => o.Customer == customerName)
-                .OrderBy(o => o.TotalPrice)
+                //.OrderBy(o => o.TotalPrice)
                 .ToList();
         }
 
@@ -90,7 +90,7 @@ namespace OrderManage.src
         {
             return context.Orders
                 .Where(o => o.Details.Any(d => d.Goods.GoodsName == goodsName))
-                .OrderBy(o => o.TotalPrice)
+                //.OrderBy(o => o.TotalPrice)
                 .ToList();
         }
 
@@ -98,8 +98,8 @@ namespace OrderManage.src
         public List<Order> QueryByTotalPrice(float totalPrice)
         {
             return context.Orders
-                .Where(o => o.TotalPrice >= totalPrice)
-                .OrderBy(o => o.TotalPrice)
+                //.Where(o => o.TotalPrice >= totalPrice)
+                //.OrderBy(o => o.TotalPrice)
                 .ToList();
         }
 
@@ -114,7 +114,7 @@ namespace OrderManage.src
         {
             return context.Orders
                 .Where(predicate)
-                .OrderBy(o => o.TotalPrice)
+                //.OrderBy(o => o.TotalPrice)
                 .ToList();
         }
     }

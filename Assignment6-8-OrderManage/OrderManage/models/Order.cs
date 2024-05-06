@@ -16,10 +16,14 @@ namespace OrderManage
 
         public DateTime CreateTime { get; set; }
 
-        public float TotalPrice
+/*        public float TotalPrice
         {
-            get => Details.Sum(d => d.TotalPrice);
-        }
+            get
+            {
+                return Details.Sum(d => d.Quantity * d.Goods.Price);
+            }
+        }*/
+
 
         public List<OrderDetail> Details => details;
 
@@ -47,10 +51,6 @@ namespace OrderManage
 
         public void AddDetails(OrderDetail orderDetail)
         {
-            if (Details.Contains(orderDetail))
-            {
-                throw new ApplicationException($"The goods ({orderDetail.Goods.GoodsName}) exist in order {OrderId}");
-            }
             Details.Add(orderDetail);
         }
 

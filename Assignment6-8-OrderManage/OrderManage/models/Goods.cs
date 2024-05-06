@@ -8,9 +8,9 @@ namespace OrderManage
         public int GoodsId { get; set; }
         public string GoodsName { get; set; }
 
-        private float price;
+        public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
-        public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        private float price;
 
         public float Price
         {

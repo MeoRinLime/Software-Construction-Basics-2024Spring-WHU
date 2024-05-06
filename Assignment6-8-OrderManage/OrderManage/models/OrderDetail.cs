@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace OrderManage
 {
@@ -11,13 +12,16 @@ namespace OrderManage
     {
         public int OrderId { get; set; }  // 作为外键的一部分，也是复合主键的一部分
         public int GoodsId { get; set; }  // 同上
-        public virtual Goods Goods { get; set; }
-        public virtual Order Order { get; set; }
+
         public int Quantity { get; set; }
 
-        [NotMapped]
-        public float TotalPrice => Goods != null ? Goods.Price * Quantity : 0;
+        //[NotMapped]
+        //[JsonIgnore]
+        //public float TotalPrice => Goods != null ? Goods.Price * Quantity : 0;
 
+        [JsonIgnore]
+        public virtual Goods Goods { get; set; }
+        public virtual Order Order { get; set; }
 
         public OrderDetail() { }
 

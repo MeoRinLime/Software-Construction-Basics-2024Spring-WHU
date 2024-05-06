@@ -100,10 +100,10 @@ namespace OrderManage.sql
                 .OnDelete(DeleteBehavior.Cascade); // 删除订单时，相关的订单明细也应被删除
 
             // 配置 Goods 和 OrderDetail 的一对多关系
-            modelBuilder.Entity<Goods>()
-                .HasMany(g => g.OrderDetails)
-                .WithOne(d => d.Goods)
-                .HasForeignKey(d => d.GoodsId)
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Goods)   // 指定导航属性
+                .WithMany(g => g.OrderDetails)   // 指定反向导航属性
+                .HasForeignKey(od => od.GoodsId) // 外键字段
                 .OnDelete(DeleteBehavior.Restrict); // 删除商品时不删除订单明细，防止数据丢失
         }
 

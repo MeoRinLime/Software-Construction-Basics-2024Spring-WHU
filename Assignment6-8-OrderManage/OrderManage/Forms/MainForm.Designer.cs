@@ -197,6 +197,7 @@
             DeleteOrder.TabIndex = 2;
             DeleteOrder.Text = "删除订单";
             DeleteOrder.UseVisualStyleBackColor = true;
+            DeleteOrder.Click += DeleteOrder_Click;
             // 
             // UpdateOrder
             // 
