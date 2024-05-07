@@ -28,7 +28,7 @@ namespace OrderManage
             UpdateOrderIDText.Text = order.OrderId.ToString();
             UpdateCostomerTextBox.Text = order.Customer.ToString();
             UpdateOrderDetailsComboBox.DataSource = order.Details;
-            UpdateOrderDetailsComboBox.DisplayMember = "ProductName";
+            UpdateQuantityTextBox.DataBindings.Add("Text", order.Details, "Quantity");
         }
         public Order Order { get; }
 
@@ -38,7 +38,6 @@ namespace OrderManage
             {
                 // 更新订单信息
                 Order.Customer = UpdateCostomerTextBox.Text;
-
 
                 // 保存订单
                 service.Update(Order);

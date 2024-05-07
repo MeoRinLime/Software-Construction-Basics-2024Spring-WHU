@@ -44,7 +44,7 @@ namespace OrderManage
 
         public override string ToString()
         {
-            return $"OrderDetail: OrderId={OrderId}, GoodsId={GoodsId}, Quantity={Quantity}";
+            return $"GoodsId={GoodsId}";
         }
     }
 

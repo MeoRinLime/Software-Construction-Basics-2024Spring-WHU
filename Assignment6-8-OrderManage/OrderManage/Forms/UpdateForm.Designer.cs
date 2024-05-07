@@ -36,6 +36,8 @@
             UpdateDetailsLabel = new Label();
             SaveButton = new Button();
             BackButton = new Button();
+            UpdateQuantityLabel = new Label();
+            UpdateQuantityTextBox = new TextBox();
             SuspendLayout();
             // 
             // UpdateCostomerLabel
@@ -61,7 +63,7 @@
             // UpdateOrderIDText
             // 
             UpdateOrderIDText.Location = new Point(517, 165);
-            UpdateOrderIDText.Margin = new Padding(4, 4, 4, 4);
+            UpdateOrderIDText.Margin = new Padding(4);
             UpdateOrderIDText.Name = "UpdateOrderIDText";
             UpdateOrderIDText.ReadOnly = true;
             UpdateOrderIDText.Size = new Size(256, 43);
@@ -70,18 +72,20 @@
             // UpdateCostomerTextBox
             // 
             UpdateCostomerTextBox.Location = new Point(517, 292);
-            UpdateCostomerTextBox.Margin = new Padding(4, 4, 4, 4);
+            UpdateCostomerTextBox.Margin = new Padding(4);
             UpdateCostomerTextBox.Name = "UpdateCostomerTextBox";
             UpdateCostomerTextBox.Size = new Size(256, 43);
             UpdateCostomerTextBox.TabIndex = 3;
             // 
             // UpdateOrderDetailsComboBox
             // 
+            UpdateOrderDetailsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             UpdateOrderDetailsComboBox.FormattingEnabled = true;
+            UpdateOrderDetailsComboBox.ImeMode = ImeMode.Disable;
             UpdateOrderDetailsComboBox.Location = new Point(517, 419);
-            UpdateOrderDetailsComboBox.Margin = new Padding(4, 4, 4, 4);
+            UpdateOrderDetailsComboBox.Margin = new Padding(4);
             UpdateOrderDetailsComboBox.Name = "UpdateOrderDetailsComboBox";
-            UpdateOrderDetailsComboBox.Size = new Size(310, 45);
+            UpdateOrderDetailsComboBox.Size = new Size(430, 45);
             UpdateOrderDetailsComboBox.TabIndex = 4;
             // 
             // UpdateDetailsLabel
@@ -96,8 +100,8 @@
             // 
             // SaveButton
             // 
-            SaveButton.Location = new Point(592, 613);
-            SaveButton.Margin = new Padding(4, 4, 4, 4);
+            SaveButton.Location = new Point(592, 672);
+            SaveButton.Margin = new Padding(4);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(181, 58);
             SaveButton.TabIndex = 6;
@@ -107,7 +111,7 @@
             // 
             // BackButton
             // 
-            BackButton.Location = new Point(228, 613);
+            BackButton.Location = new Point(228, 672);
             BackButton.Margin = new Padding(4);
             BackButton.Name = "BackButton";
             BackButton.Size = new Size(181, 58);
@@ -116,11 +120,31 @@
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
+            // UpdateQuantityLabel
+            // 
+            UpdateQuantityLabel.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            UpdateQuantityLabel.Location = new Point(180, 526);
+            UpdateQuantityLabel.Margin = new Padding(4, 0, 4, 0);
+            UpdateQuantityLabel.Name = "UpdateQuantityLabel";
+            UpdateQuantityLabel.Size = new Size(229, 60);
+            UpdateQuantityLabel.TabIndex = 8;
+            UpdateQuantityLabel.Text = "数量：";
+            // 
+            // UpdateQuantityTextBox
+            // 
+            UpdateQuantityTextBox.Location = new Point(517, 526);
+            UpdateQuantityTextBox.Margin = new Padding(4);
+            UpdateQuantityTextBox.Name = "UpdateQuantityTextBox";
+            UpdateQuantityTextBox.Size = new Size(256, 43);
+            UpdateQuantityTextBox.TabIndex = 9;
+            // 
             // UpdateForm
             // 
             AutoScaleDimensions = new SizeF(18F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(995, 870);
+            Controls.Add(UpdateQuantityTextBox);
+            Controls.Add(UpdateQuantityLabel);
             Controls.Add(BackButton);
             Controls.Add(SaveButton);
             Controls.Add(UpdateDetailsLabel);
@@ -130,7 +154,7 @@
             Controls.Add(UpdateOrderIDLabel);
             Controls.Add(UpdateCostomerLabel);
             Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "UpdateForm";
             Text = "修改订单";
             ResumeLayout(false);
@@ -147,5 +171,7 @@
         private Label UpdateDetailsLabel;
         private Button SaveButton;
         private Button BackButton;
+        private Label UpdateQuantityLabel;
+        private TextBox UpdateQuantityTextBox;
     }
 }
